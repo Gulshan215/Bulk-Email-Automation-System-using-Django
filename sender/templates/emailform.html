@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h3>Using Template: {{ template_obj.name }}</h3>
+<p><b>Subject:</b> {{ template_obj.subject }}</p>
+<p><b>Body Preview:</b> {{ template_obj.body }}</p>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Upload & Send</button>
+</form>
+
+{% endblock content %}

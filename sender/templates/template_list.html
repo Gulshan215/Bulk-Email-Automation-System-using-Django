@@ -1,0 +1,74 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Templates</h1>
+
+    <div class="template-row">
+        {% for temp in tempalte %}
+        <div class="template-card">
+            <h5 class="card-title">{{ temp.name }}</h5>
+            <h6 class="card-subtitle">{{ temp.subject }}</h6>
+            <p class="card-text">{{ temp.body|truncatewords:20 }}</p>
+            <a href="{% url 'template_edit' temp.id %}">
+            <button class="btn btn-primary btn-sm">Use Template</button>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+/* Container row */
+.template-row {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;    /* enables horizontal scrolling */
+    padding-bottom: 10px;
+    scrollbar-width: thin;
+}
+
+/* Card style */
+.template-card {
+    flex: 0 0 300px;    /* fixed width cards */
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect */
+.template-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* Titles */
+.template-card .card-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.template-card .card-subtitle {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+/* Body text */
+.template-card .card-text {
+    font-size: 0.85rem;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+/* Button */
+.template-card .btn {
+    width: 100%;
+    border-radius: 8px;
+}
+</style>
+{% endblock content %}

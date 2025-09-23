@@ -1,0 +1,20 @@
+[
+  {
+    "model": "sender.EmailTemplate",
+    "pk": 1,
+    "fields": {
+      "name": "Welcome Email",
+      "subject": "Welcome to our Platform",
+      "body": "Hi {{ username }}, <br><br> Welcome onboard"
+    }
+  },
+  {
+    "model": "sender.EmailTemplate",
+    "pk": 2,
+    "fields": {
+      "name": "Password Reset",
+      "subject": "Reset your password",
+      "body": "Click here to reset: {{ reset_link }}"
+    }
+  }
+]
